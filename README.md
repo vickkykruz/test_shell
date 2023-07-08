@@ -31,9 +31,12 @@
 2. Read the command from the user.
 3. Parse the command to idenity the commmand itself (arguments, options, redirection, and piping instructions).
 4. If the command is a built-in shell command:
+    <pre>
     a. Execute the built-in command
     b. Go to step 1.
+    </pre>
 5. If the command is an external program:
+    <pre>
     a. Search for the program system directories
     b. if the program is found
         a. Create a new process to run the program
@@ -43,4 +46,5 @@
     a. If the program is not found:
         a. Display an error message
     a. Go to step 1.
+    </pre>
 6. Continue the shell execution until the user exits
