@@ -13,6 +13,9 @@ integer main(integer argc, string argv[], string env[]){
     /* Pass the address of  of the list_t to ptr */
     data_list *ptr = &list_t;
     string prompt = "$ ";
+
+    // Create a inifite loop
+    shell_loop(prompt, ptr);
     
     return (EXIT_SUCCESS);
 }

@@ -14,11 +14,11 @@ typedef struct data_into
 {
     char *arg;
     char *arg_line;
-    int counter;
+    int count;
     char *cmd;
     int desc;
     char **env;
-    char **tokken;
+    char **segment;
     char **list;
 }data_list;
 
