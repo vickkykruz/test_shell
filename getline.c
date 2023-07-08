@@ -35,7 +35,7 @@ integer _getline(data_list *ptr)
         i = 0;
         do
         {
-            arr_cmd[i] = _strdup(_strtoken((!i) ? buffer, "\n" : NULL));
+            arr_cmd[i] = _strdup(_strtoken((!i) ? buffer, "\n;" : NULL));
             /*Checking for || and && in the command */
             i = islogic(arr_cmd, i, arr_opt);
         } while (arr_cmd[i++]);

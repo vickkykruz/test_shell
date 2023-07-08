@@ -45,37 +45,37 @@ integer print_err(integer statusCode, data_list *ptr)
 
     switch (statusCode)
     {
-    case 127:
-        printerr_ch(ptr->arg);
-        printerr_ch(": ");
-        printerr_ch(arr);
-        printerr_ch(": ");
-        printerr_ch(ptr->cmd);
-        printerr_ch(": not found\n");
-        break;
-    case 126:
-        printerr_ch(ptr->arg);
-        printerr_ch(": ");
-        printerr_ch(arr);
-        printerr_ch(": ");
-        printerr_ch(ptr->cmd);
-        printerr_ch(": Permission denied\n");
-        break;
-    case 2 || 3:
-        printerr_ch(ptr->arg);
-        printerr_ch(": ");
-        printerr_ch(arr);
-        printerr_ch(": ");
-        printerr_ch(ptr->segment[0]);
-        if (statusCode != 2)
-            printerr_ch(": can't cd to");
-        else
-            printerr_ch(": Illegal number: ");
-        printerr_ch(ptr->segment[1]);
-        printerr_ch("\n");
-        break;
-    default:
-        printerr_ch(": program Error\n");
-        break;
+        case 127:
+            printerr_ch(ptr->arg);
+            printerr_ch(": ");
+            printerr_ch(arr);
+            printerr_ch(": ");
+            printerr_ch(ptr->cmd);
+            printerr_ch(": not found\n");
+            break;
+        case 126:
+            printerr_ch(ptr->arg);
+            printerr_ch(": ");
+            printerr_ch(arr);
+            printerr_ch(": ");
+            printerr_ch(ptr->cmd);
+            printerr_ch(": Permission denied\n");
+            break;
+        case 2 || 3:
+            printerr_ch(ptr->arg);
+            printerr_ch(": ");
+            printerr_ch(arr);
+            printerr_ch(": ");
+            printerr_ch(ptr->segment[0]);
+            if (statusCode != 2)
+                printerr_ch(": can't cd to");
+            else
+                printerr_ch(": Illegal number: ");
+            printerr_ch(ptr->segment[1]);
+            printerr_ch("\n");
+            break;
+        default:
+            printerr_ch(": program Error\n");
+            break;
     }
 }

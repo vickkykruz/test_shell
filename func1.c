@@ -35,7 +35,7 @@ void str_rev(string str)
     {
         /* Swap each chars*/
         s = str[i];
-        str['i++'] = str[len];
+        str[i++] = str[len];
         str[len--] = s;
     }
 }
@@ -77,4 +77,32 @@ void convertstr(long_number num, string str, integer b)
  * Return: This function return the duplicated sting as pointer
 */
 string _strdup(string str)
-{}
+{
+    integer len, i = 0;
+    string dest;
+
+    if (str == NULL)
+        return (NULL);
+
+    /* Get the lenght of the string */
+    len = _strlen(str);
+    len = len + 1; /* Adding The '\0' */
+
+    dest = malloc(sizeof(str) * len);
+    if (dest == NULL)
+    {
+        /* Display and error */
+        perror("Error");
+        errno = ENOMEM; /* Error: Not enought space */
+        return (NULL);
+    }
+
+    while (i < len)
+    {
+        dest[i] = str[i];
+        i++;
+    }
+
+    return (dest);
+    
+}

@@ -31,5 +31,6 @@ integer _getline(data_list *ptr);
 integer _strlen(string str);
 void str_rev(string str);
 void convertstr(long_number num, string str, integer b);
+string _strdup(string str);
 
 #endif
