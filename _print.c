@@ -40,7 +40,8 @@ integer print(string str)
 integer print_err(integer statusCode, data_list *ptr)
 {
     char arr[10] = {'\0'};
-    printstr((long) ptr->count, arr, 10);
+    
+    convertstr((long_number) ptr->count, arr, 10);
 
     switch (statusCode)
     {

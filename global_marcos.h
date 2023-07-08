@@ -5,6 +5,7 @@
 typedef int integer;
 typedef char * string;
 typedef float decimal;
+typedef long long_number;
 
 /**
  * struct data_info - created the sturct to store the argument entered
@@ -26,6 +27,11 @@ typedef struct data_into
     NULL, NULL, 0, NULL, 0, NULL, NULL, NULL\
 }
 
+#define HEX {"0123456789abcdef"}
+/**
+ * BUFF_SIZE - 
+*/
+#define BUFF_SIZE 1024
 
 
 #endif
