@@ -33,4 +33,7 @@ void str_rev(string str);
 void convertstr(long_number num, string str, integer b);
 string _strdup(string str);
 
+/*** TOKENIZE.C FILE ****/
+integer islogic(string arr_cmd[], integer idx, char arr_opt[]);
+string _strtoken(string line, string delim);
 #endif
