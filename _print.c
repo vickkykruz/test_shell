@@ -79,3 +79,41 @@ integer print_err(integer statusCode, data_list *ptr)
 			break;
 	}
 }
+/**
+ * _print_alias - This is a function that display the alias
+ * @str: This is an argument that represent the name of the
+ * alias to be displayed
+ * @ptr: This is an argument that represent the data_list struct
+ * 
+ * Return: This function return an int (0) as sucess and (1) fauilure
+*/
+integer _print_alias(data_list *ptr, string str)
+{
+    char buff[250] = {'\0'};
+    integer i = 0, k, len;
+
+    if (ptr->list)
+    {
+        len = _strlen(str);
+
+        while (ptr->list[i])
+        {
+            if (str == NULL || (_strcomp(ptr->list[i], str, len) && ptr->list[i][len] == '='))
+            {
+                for (k = 0; ptr->list[i][k]; k++)
+                {
+                    buff[k] = ptr->list[i][k];
+                    if (ptr->list[i][k] == '=')
+                        break;
+                }
+                buff[k + 1] = '\0';
+                buff_add(buff, "'");
+                buff_add(buff, ptr->list[i] + k + 1);
+                buff_add(buff, "'\n");
+                print(buff);
+            }
+            i++;
+        }
+    }
+    return (0);
+}
