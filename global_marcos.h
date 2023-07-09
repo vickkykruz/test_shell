@@ -21,11 +21,10 @@ typedef struct data_into
     char **env;
     char **segment;
     char **list;
-}data_list;
+} data_list;
 
-#define PLACEHOLDRS { \
-    NULL, NULL, 0, NULL, 0, NULL, NULL, NULL\
-}
+#define PLACEHOLDRS \
+	{ NULL, NULL, 0, NULL, 0, NULL, NULL, NULL }
 
 #define HEX {"0123456789abcdef"}
 /**

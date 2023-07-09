@@ -49,7 +49,7 @@ void str_rev(string str)
 */
 void convertstr(long_number num, string str, integer b)
 {
-    integer idx, nive = 0;
+    integer idx = 0, nive = 0;
     char arr[] = HEX;
     long_number con = num;
 
