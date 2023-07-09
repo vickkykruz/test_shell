@@ -19,7 +19,7 @@ integer _getline(data_list *ptr)
         /* If any any memory was allocated we want to free it*/
         i = 0;
 
-        while (arr_cmd)
+        while (arr_cmd[i])
         {
             free(arr_cmd[i]);
             arr_cmd[i] = NULL; /* Redeclare it as NULL*/
