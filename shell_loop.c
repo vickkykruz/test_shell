@@ -47,7 +47,7 @@ void shell_loop(string prompt, data_list *ptr)
             }
 
             /* Free the data allocation in the memory if there is any break/failure*/
-            free_repetitive_daa(ptr);
+            free_repetitive_data(ptr);
         }
     }
 }

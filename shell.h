@@ -7,7 +7,7 @@
 #include <stddef.h>
 #include <string.h>
 #include <unistd.h>
-#include <sys/wait.h>
+// #include <sys/wait.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <signal.h>
@@ -36,4 +36,9 @@ string _strdup(string str);
 /*** TOKENIZE.C FILE ****/
 integer islogic(string arr_cmd[], integer idx, char arr_opt[]);
 string _strtoken(string line, string delim);
+
+/*** FREE.C ****/
+void free_ptr(string *ptr);
+void free_repetitive_data(data_list *ptr);
+void free_data(data_list *ptr);
 #endif
