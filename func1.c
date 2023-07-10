@@ -104,5 +104,47 @@ string _strdup(string str)
     }
 
     return (dest);
-    
+}
+/**
+ * _strcomp - This is a function that compair two strings at onces
+ * @s1: This is an argument that represent the given first string
+ * @s2: This is an argument that represent the given second string
+ * @num: This is an argument that reprsent the number of charcters to be
+ * compared
+ * Return: This function return an integer that indeicate (0) as difference and
+ * (1) as equal
+*/
+integer _strcomp(string s1, string s2, integer num)
+{
+    integer i;
+
+    /* Valiade the argument passed */
+    if (s1 == NULL || s2 == NULL)
+        return (0);
+
+    if (s1 == NULL && s2 == NULL)
+        return (1);
+
+    if (num == 0)
+    {
+        if (_strlen(s1) != _strlen(s2))
+            return (0);
+        
+        for (i = 0; s1[i]; i++)
+        {
+            if (s1[i] != s2[i])
+                return (0);
+        }
+        return (1);
+    }
+    else
+    {
+        /* Check if the number of charcters is compaired */
+        for (i = 0; i < num; i++)
+        {
+            if (s1[i] != s2[i])
+                return (0);
+        }
+        return (1);
+    }
 }
