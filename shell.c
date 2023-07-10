@@ -9,13 +9,13 @@
  * Return: This function return an EXITSUCESS
 */
 integer main(integer argc, string argv[], string env[]){
-    data_list list_t = PLACEHOLDRS;
+    data_list list_t = {NULL}, *ptr;
+    string prompt = "$ ";
     (void)argc;
     (void)argv;
     (void)env;
     /* Pass the address of  of the list_t to ptr */
-    data_list *ptr = &list_t;
-    string prompt = "$ ";
+    ptr = &list_t;
 
     /* Create a inifite loop */
     shell_loop(prompt, ptr);
