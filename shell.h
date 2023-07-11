@@ -38,6 +38,7 @@ integer _strcomp(string s1, string s2, integer num);
 /*** TOKENIZE.C FILE ****/
 integer islogic(string arr_cmd[], integer idx, char arr_opt[]);
 string _strtoken(string line, string delim);
+void partition(data_list *ptr);
 
 /***** ENV.C FILE *****/
 string access_env_key(string key, data_list *ptr);
