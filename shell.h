@@ -39,6 +39,9 @@ integer _strcomp(string s1, string s2, integer num);
 integer islogic(string arr_cmd[], integer idx, char arr_opt[]);
 string _strtoken(string line, string delim);
 
+/***** ENV.C FILE *****/
+string access_env_key(string key, data_list *ptr);
+
 /*** FREE.C ****/
 void free_ptr(string *ptr);
 void free_repetitive_data(data_list *ptr);
@@ -49,4 +52,7 @@ integer buff_add(string buff, string str);
 string access_alias(data_list *ptr, string str);
 integer insert_alias(string str, data_list *ptr);
 void alias_expansion(data_list *ptr);
+
+/***** VAR.C FILE *****/
+void var_expansion(data_list *ptr);
 #endif
