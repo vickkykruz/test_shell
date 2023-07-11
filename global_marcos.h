@@ -28,7 +28,7 @@ typedef struct data_into
 
 #define HEX {"0123456789abcdef"}
 /**
- * BUFF_SIZE - 
+ * BUFF_SIZE - This BUFF_SIZE reprsent the inital mememory to be allocated
 */
 #define BUFF_SIZE 1024
 
