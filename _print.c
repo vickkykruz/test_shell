@@ -117,3 +117,19 @@ integer _print_alias(data_list *ptr, string str)
     }
     return (0);
 }
+/**
+ * print_env - This is a function that print the env
+ * @ptr: This is an argument that reprsent the data list struct
+ * 
+ * Return: This function return a void
+*/
+void print_env(data_list *ptr)
+{
+	integer i = 0;
+
+	while (ptr->env[i])
+	{
+		print(ptr->env[i]);
+		print("\n");
+	}
+}

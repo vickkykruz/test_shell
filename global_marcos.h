@@ -32,5 +32,24 @@ typedef struct data_into
 */
 #define BUFF_SIZE 1024
 
+/**
+ * 
+*/
+typedef struct buitin
+{
+    string cmd;
+    integer (*fun)(data_list *ptr);
+} builin_fun;
 
+
+#define BUITIN_FUNC { \
+    {"cd", _cd} \
+    {"env", _env} \
+    {"setenv", _setenv} \
+    {"unsetenv", _unsetenv} \
+    {"exit", _exit} \
+    {"alias", _alias} \
+    {"help", _help} \
+    {NULL, NULL} \
+}
 #endif

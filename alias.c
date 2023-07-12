@@ -61,7 +61,7 @@ string access_alias(data_list *ptr, string str)
 */
 integer insert_alias(string str, data_list *ptr)
 {
-    char buff[250];
+    char buff[250] = {'0'};
     string tmp = NULL;
     integer i = 0, k = 0;
 
@@ -143,4 +143,27 @@ void alias_expansion(data_list *ptr)
         free(ptr->arg_line);
         ptr->arg_line = _strdup(size);
     }
+}
+/**
+ * _alias - This is a function that return the alias
+ * @ptr: This is an argument that reprsent the data list sruct
+ * 
+ * Return: This function return (0)as sucess otherwise (-1) as error
+*/
+integer _alias(data_list *ptr)
+{
+    integer i;
+
+    /* Valiadating the argument value*/
+    if (ptr->segment[1] == NULL)
+        return (_print_alias(ptr, NULL));
+
+    for (i = 0; ptr->segment[i]; i++)
+    {
+        if (char_count(ptr->segment[i], "="))
+            insert_alias(ptr->segment[i], ptr);
+        else
+            _print_alias(ptr, ptr->segment[i]);
+    }
+    return (0);
 }

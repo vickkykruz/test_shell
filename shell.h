@@ -24,6 +24,7 @@ integer printerr_ch(string str);
 integer print(string str);
 integer print_err(integer statusCode, data_list *ptr);
 integer _print_alias(data_list *ptr, string str);
+void print_env(data_list *ptr);
 
 /*** GETLINE.C FILE ****/
 integer _getline(data_list *ptr);
@@ -38,9 +39,12 @@ integer _strcomp(string s1, string s2, integer num);
 /*** TOKENIZE.C FILE ****/
 integer islogic(string arr_cmd[], integer idx, char arr_opt[]);
 string _strtoken(string line, string delim);
+void partition(data_list *ptr);
 
 /***** ENV.C FILE *****/
 string access_env_key(string key, data_list *ptr);
+integer remove_env(string key, data_list *ptr);
+integer set_env(string key, string val, data_list *ptr);
 
 /*** FREE.C ****/
 void free_ptr(string *ptr);
@@ -52,7 +56,28 @@ integer buff_add(string buff, string str);
 string access_alias(data_list *ptr, string str);
 integer insert_alias(string str, data_list *ptr);
 void alias_expansion(data_list *ptr);
+integer _alias(data_list *ptr);
 
 /***** VAR.C FILE *****/
 void var_expansion(data_list *ptr);
+
+/***** CMD_EXECUTE.C FILE *****/
+integer execute(data_list *ptr);
+
+/***** FUNC2.C FILE *****/
+void str_rev(string str);
+string _strcon(string s1, string s2);
+
+/***** BUILTIN.C FILE ******/
+integer get_bulllet(data_list *ptr);
+
+/***** CD.C FILE ******/
+integer set_directory(data_list *ptr, string dir);
+integer _cd(data_list *ptr);
+
+/****** EXIT.C FILE ******/
+integer _exit(data_list *ptr);
+
+/**** NUM.C FILE *****/
+integer char_count(string str, string ch);
 #endif
