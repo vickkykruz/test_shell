@@ -13,7 +13,7 @@ integer set_directory(data_list *ptr, string dir)
 
     getcwd(buff, 128);
 
-    if (_strcomp(buff, dir, 0) != NULL)
+    if (!_strcomp(buff, dir, 0))
     {
         err_code = chdir(dir);
         if (err_code == -1)

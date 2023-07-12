@@ -5,7 +5,7 @@
  * 
  * Return: This function return (0) as success othwise (-1) as error
 */
-integer _exit(data_list *ptr)
+integer exit_fun(data_list *ptr)
 {
     int i = 0;
 

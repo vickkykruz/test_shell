@@ -108,39 +108,41 @@ string _strtoken(string line, string delim)
 */
 void partition(data_list *ptr)
 {
-    integer i = 0, k, len, count = 2;
-    string delim = " \t";
+	integer i = 0, k, len, count = 2;
+	string delim = " \t";
 
-    len = _strlen(ptr->arg_line);
-    /* If the len value of len is not 0*/
-    if (len)
-    {
-        /* Checking if the string passed end \n, if so change it to \0*/
-        if (ptr->arg_line[len - 1 ] == '\n')
-            ptr->arg_line[len - 1] == '\0';
-    }
+	len = _strlen(ptr->arg_line);
+	/* If the len value of len is not 0*/
+	if (len)
+	{
+		/* Checking if the string passed end \n, if so change it to \0*/
+		if (ptr->arg_line[len - 1 ] == '\n')
+		{
+			ptr->arg_line[len - 1] == '\0';
+		}
+	}
 
-    while (ptr->arg_line[i])
-    {
-        for (k = 0; delim[k]; k++)
-        {
-            if (ptr->arg_line[i] == delim[k])
-                count++;
-        }
-        i++;
-    }
+	while (ptr->arg_line[i])
+	{
+		for (k = 0; delim[k]; k++)
+		{
+			if (ptr->arg_line[i] == delim[k])
+				count++;
+		}
+		i++;
+	}
 
-    ptr->segment = malloc(sizeof(string) * count);
-    if (ptr->segment == NULL)
-    {
-        perror(ptr->arg);
-        exit(errno);
-    }
-    i = 0;
-    ptr->segment[i] = _strdup(_strtoken(ptr->arg_line, delim));
-    ptr->cmd = _strdup(ptr->segment[0]);
-    while (ptr->segment[i++])
-    {
-        ptr->segment[i] = _strdup(_strtoken(NULL, delim));
-    }
+	ptr->segment = malloc(sizeof(string) * count);
+	if (ptr->segment == NULL)
+	{
+		perror(ptr->arg);
+		exit(errno);
+	}
+	i = 0;
+	ptr->segment[i] = _strdup(_strtoken(ptr->arg_line, delim));
+	ptr->cmd = _strdup(ptr->segment[0]);
+	while (ptr->segment[i++])
+	{
+		ptr->segment[i] = _strdup(_strtoken(NULL, delim));
+	}
 }

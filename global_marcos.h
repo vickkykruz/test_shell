@@ -42,14 +42,14 @@ typedef struct buitin
 } builin_fun;
 
 
-#define BUITIN_FUNC { \
-    {"cd", _cd} \
-    {"env", _env} \
-    {"setenv", _setenv} \
-    {"unsetenv", _unsetenv} \
-    {"exit", _exit} \
-    {"alias", _alias} \
-    {"help", _help} \
-    {NULL, NULL} \
+#define BUITIN_FUNC {\
+	{"cd", _cd},\
+	{"env", _env},\
+	{"setenv", _setenv},\
+	{"unsetenv", _unsetenv},\
+	{"exit", exit_fun},\
+	{"alias", _alias},\
+	{"help", _help},\
+	{NULL, NULL}\
 }
 #endif

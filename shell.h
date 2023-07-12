@@ -76,7 +76,7 @@ integer set_directory(data_list *ptr, string dir);
 integer _cd(data_list *ptr);
 
 /****** EXIT.C FILE ******/
-integer _exit(data_list *ptr);
+integer exit_fun(data_list *ptr);
 
 /**** NUM.C FILE *****/
 integer char_count(string str, string ch);

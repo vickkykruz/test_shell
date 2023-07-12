@@ -97,7 +97,7 @@ integer set_env(string key, string val, data_list *ptr)
         }
         i++;
     }
-    ptr->env[i] = _strcon(_strdup(key), '=');
+    ptr->env[i] = _strcon(_strdup(key), "=");
     ptr->env[i] = _strcon(ptr->env[i], val);
 
     if (nkey)

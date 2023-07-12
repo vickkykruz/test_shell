@@ -43,40 +43,37 @@ integer print_err(integer statusCode, data_list *ptr)
 
 	convertstr((long_number) ptr->count, arr, 10);
 
-	switch (statusCode)
+	if (statusCode ==  127)
 	{
-		case 127:
-			printerr_ch(ptr->arg);
-			printerr_ch(": ");
-			printerr_ch(arr);
-			printerr_ch(": ");
-			printerr_ch(ptr->cmd);
-			printerr_ch(": not found\n");
-			break;
-		case 126:
-			printerr_ch(ptr->arg);
-			printerr_ch(": ");
-			printerr_ch(arr);
-			printerr_ch(": ");
-			printerr_ch(ptr->cmd);
-			printerr_ch(": Permission denied\n");
-			break;
-		case 2 || 3:
-			printerr_ch(ptr->arg);
-			printerr_ch(": ");
-			printerr_ch(arr);
-			printerr_ch(": ");
-			printerr_ch(ptr->segment[0]);
-			if (statusCode != 2)
-				printerr_ch(": can't cd to");
-			else
-				printerr_ch(": Illegal number: ");
-			printerr_ch(ptr->segment[1]);
-			printerr_ch("\n");
-			break;
-		default:
-			printerr_ch(": program Error\n");
-			break;
+		printerr_ch(ptr->arg);
+		printerr_ch(": ");
+		printerr_ch(arr);
+		printerr_ch(": ");
+		printerr_ch(ptr->cmd);
+		printerr_ch(": not found\n");
+	}
+	else if(statusCode == 126)
+	{
+		printerr_ch(ptr->arg);
+		printerr_ch(": ");
+		printerr_ch(arr);
+		printerr_ch(": ");
+		printerr_ch(ptr->cmd);
+		printerr_ch(": Permission denied\n");
+	}
+	else if (statusCode == 2 || statusCode == 3)
+	{
+		printerr_ch(ptr->arg);
+		printerr_ch(": ");
+		printerr_ch(arr);
+		printerr_ch(": ");
+		printerr_ch(ptr->segment[0]);
+		if (statusCode != 2)
+			printerr_ch(": can't cd to");
+		else
+			printerr_ch(": Illegal number: ");
+		printerr_ch(ptr->segment[1]);
+		printerr_ch("\n");
 	}
 }
 /**
