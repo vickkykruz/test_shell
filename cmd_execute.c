@@ -11,7 +11,7 @@ integer execute(data_list *ptr)
     integer status, rev = 0;
 
     /* Vaidating the program in bulid-in function */
-    rev = bulllet_list(ptr);
+    rev = get_bulllet(ptr);
     if (rev != 1)/* validate the result*/
         return (rev);
 
