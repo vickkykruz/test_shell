@@ -17,3 +17,35 @@ integer char_count(string str, string ch)
     }
     return (count);
 }
+/**
+ * _atoi - This is a function that return the converted string to integer
+ * @str: This is an argument thatvreprsent the given string to be converted
+ *
+ * Return: This function return the converted string to integer
+ */
+integer _atoi(string str)
+{
+	unsigned int num = 0;
+	integer i = 1;
+
+	/** validating the vlaue for '0' to '9' in ASCII */
+	while (!('0' <= *str && *str <= '9') && *str != '\0')
+	{
+		if (*str == '-')
+			i *= -1;
+		if (*str == '+')
+			i *= +1;
+		str++;
+	}
+	
+	/** valudate the string for the scond str **/
+	while ('0' <= *str && *str <= '9' && *str != '\0')
+	{
+		num = (num * 10) + (*str - '0');
+
+		str++;
+	}
+
+	/** return the converted integer **/
+	return (num * i);
+}

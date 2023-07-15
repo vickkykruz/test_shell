@@ -49,7 +49,6 @@ typedef struct buitin
 	{"unsetenv", _unsetenv},\
 	{"exit", exit_fun},\
 	{"alias", _alias},\
-	{"help", _help},\
 	{NULL, NULL}\
 }
 #endif

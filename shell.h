@@ -64,6 +64,11 @@ void var_expansion(data_list *ptr);
 /***** CMD_EXECUTE.C FILE *****/
 integer execute(data_list *ptr);
 
+/***** CMD_ENV.C FILE ******/
+integer _env(data_list *ptr);
+integer _unsetenv(data_list *ptr);
+integer _setenv(data_list *ptr);
+
 /***** FUNC2.C FILE *****/
 void str_rev(string str);
 string _strcon(string s1, string s2);
@@ -80,4 +85,9 @@ integer exit_fun(data_list *ptr);
 
 /**** NUM.C FILE *****/
 integer char_count(string str, string ch);
+integer _atoi(string str);
+
+/** SEARCH_PROGRAM.C FILE **/
+integer validate_file(string path);
+string *segment_path(data_list *ptr);
 #endif
