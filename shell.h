@@ -27,11 +27,12 @@ integer _print_alias(data_list *ptr, string str);
 void print_env(data_list *ptr);
 
 /*** GETLINE.C FILE ****/
+void intialize_info(data_list *ptr, integer argc, string argv[], string *env);
 integer _getline(data_list *ptr);
 
 /*** FUNC1.C FILE ****/
 integer _strlen(string str);
-void str_rev(string str);
+/* void str_rev(string str); */
 void convertstr(long_number num, string str, integer b);
 string _strdup(string str);
 integer _strcomp(string s1, string s2, integer num);
@@ -90,4 +91,5 @@ integer _atoi(string str);
 /** SEARCH_PROGRAM.C FILE **/
 integer validate_file(string path);
 string *segment_path(data_list *ptr);
+integer search_program(data_list *ptr);
 #endif

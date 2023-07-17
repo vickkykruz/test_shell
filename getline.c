@@ -1,5 +1,52 @@
 #include "shell.h"
 /**
+ */
+void intialize_info(data_list *ptr, integer argc, string argv[], string *env)
+{
+	integer i = 0;
+
+	ptr->arg = argv[0];
+	ptr->cmd = NULL;
+	ptr->count = 0;
+	ptr->arg_line = NULL;
+
+	/* Vheck if the argument count if it a file descriptor */
+	if (argc == 1)
+		ptr->desc = STDIN_FILENO;
+	else
+	{
+		/* Store the file descriptor to the data list struct */
+		ptr->desc = open(argv[1], O_RDONLY);
+		/* If it faied */
+		if (ptr->desc == -1)
+		{
+			printerr_ch(ptr->arg);
+			printerr_ch(": 0: Can't open");
+			printerr_ch(argv[1]);
+			printerr_ch("\n");
+			exit(127);
+		}
+	}
+	ptr->segment = NULL;
+	ptr->env = malloc(sizeof(string) * 50);
+	if (env)
+	{
+		while (env[i])
+		{
+			ptr->env[i] = _strdup(env[i]);
+			i++;
+		}
+	}
+	ptr->env[i] = NULL;
+	env = ptr->env;
+
+	ptr->list = malloc(sizeof(string) * 20);
+
+	for (i = 0; i < 20; i++)
+		ptr->list[i] = NULL;
+
+}
+/**
  * _getline - This is a custome function that read the command from the prompt
  * @ptr: This is an argument that represent the struct list of the user data stored
  * 

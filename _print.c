@@ -75,6 +75,8 @@ integer print_err(integer statusCode, data_list *ptr)
 		printerr_ch(ptr->segment[1]);
 		printerr_ch("\n");
 	}
+
+	return (0);
 }
 /**
  * _print_alias - This is a function that display the alias

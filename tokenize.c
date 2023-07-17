@@ -118,7 +118,7 @@ void partition(data_list *ptr)
 		/* Checking if the string passed end \n, if so change it to \0*/
 		if (ptr->arg_line[len - 1 ] == '\n')
 		{
-			ptr->arg_line[len - 1] == '\0';
+			ptr->arg_line[len - 1] = '\0';
 		}
 	}
 

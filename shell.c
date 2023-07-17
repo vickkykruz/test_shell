@@ -8,17 +8,23 @@
  * 
  * Return: This function return an EXITSUCESS
 */
-integer main(integer argc, string argv[], string env[]){
-    data_list list_t = {NULL}, *ptr;
-    string prompt = "$ ";
-    (void)argc;
-    (void)argv;
-    (void)env;
-    /* Pass the address of  of the list_t to ptr */
-    ptr = &list_t;
+integer main(integer argc, string argv[], string env[])
+{
+	data_list list_t = {NULL}, *ptr;
+	string prompt = "$ ";
 
-    /* Create a inifite loop */
-    shell_loop(prompt, ptr);
+	/* Pass the address of  of the list_t to ptr */
+	ptr = &list_t;
+
+	/** intialize the data info **/
+	intialize_info(ptr, argc, argv, env);
+
+	if (isatty(STDIN_FILENO) && isatty(STDOUT_FILENO) && argc == 1)
+		errno = 2;
+
+	errno = 0; /* Return the status to default */
+	/* Create a inifite loop */
+	shell_loop(prompt, ptr);
     
-    return (EXIT_SUCCESS);
+	return (0);
 }

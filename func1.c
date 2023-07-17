@@ -25,20 +25,20 @@ integer _strlen(string str)
  * 
  * Return: This function return a void
 */
-void str_rev(string str)
+/* void str_rev(string str)
 {
     char s;
     integer len, i = 0;
 
     len = _strlen(str) - 1;
     while (i < len)
-    {
+    { */
         /* Swap each chars*/
-        s = str[i];
+        /* s = str[i];
         str[i++] = str[len];
         str[len--] = s;
     }
-}
+} */
 /**
  * convertstr - This is a function that return the converted number to string
  * @num: This is an argument that reprsent the number needed to be converted

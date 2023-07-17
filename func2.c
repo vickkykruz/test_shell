@@ -8,10 +8,10 @@
 void str_rev(string str)
 {
     char ch;
-    integer i, len;
+    integer i = 0, len;
 
     len = _strlen(str) - 1;
-    while ( i < len)
+    while (i < len)
     {
         ch = str[i];
         str[i++] = str[len];

@@ -69,3 +69,59 @@ string *segment_path(data_list *ptr)
 	PATH = NULL;
 	return (segment);
 }
+/**
+ * search_program - This is a function that return the path of the program if
+ * found
+ * @ptr: This is an argument that reprsent the data list struct
+ *
+ * Return: This function return (0) as sucess otherwise error
+ */
+integer search_program(data_list *ptr)
+{
+	integer i = 0, statusCode = 0;
+	string *dir;
+
+	/** Check there is an available command */
+	if (!ptr->cmd)
+		return (2);
+
+	/* If the value is a full path or an executable in the same path */
+	if (ptr->cmd[0] == '/' || ptr->cmd[0] == '.')
+		return (validate_file(ptr->cmd));
+
+	free(ptr->segment[0]);
+	ptr->segment[0] = _strcon(_strdup("/"), ptr->cmd);
+	if (!ptr->segment[0])
+		return (2);
+
+	/* Get the directory path */
+	dir = segment_path(ptr);
+	/* Vaildate value */
+	if (!dir || !dir[0])
+	{
+		errno = 127;
+		return (127);
+	}
+
+	while (dir[i])
+	{
+		/** We append the name of the function to the path **/
+		dir[i] = _strcon(dir[i], ptr->segment[0]);
+		statusCode = validate_file(dir[i]);
+		/* if failed or not found we return the err code */
+		if (statusCode == 0 || statusCode == 126)
+		{
+			errno = 0;
+			free(ptr->segment[0]);
+			ptr->segment[0] = _strdup(dir[i]);
+			free_ptr(dir);
+			return (statusCode);
+		}
+		i++;
+	}
+
+	free(ptr->segment[0]);
+	ptr->segment[0] = NULL;
+	free_ptr(dir);
+	return (statusCode);
+}
